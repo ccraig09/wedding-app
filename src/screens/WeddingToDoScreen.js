@@ -1,6 +1,4 @@
-// WeddingToDoScreen.js
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -9,6 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLORS, SIZES, SHADOWS } from "../utils/theme";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
@@ -18,6 +17,7 @@ import { mergeWeddingToDoData } from "../utils/taskUtils";
 // If you have multiple data sources, you can merge them.
 // For now, we merge a single source to get our initial data.
 const mergedData = mergeWeddingToDoData([weddingToDoData]);
+const STORAGE_KEY = "weddingToDoTasks";
 
 // Map each category to a custom icon (using Ionicons)
 const categoryIcons = {
@@ -36,12 +36,8 @@ const categoryIcons = {
 };
 
 // Define a green-dominant gradient using your theme values.
-const greenDominantGradient = [COLORS.success, COLORS.success, COLORS.primary];
+const greenDominantGradient = [COLORS.primary, COLORS.primary, COLORS.primary];
 
-/* CustomProgressBar:
-   A simple progress bar that displays a white track (with a slightly transparent white)
-   and a fill (more opaque white) to indicate progress.
-*/
 const CustomProgressBar = ({ progress }) => {
   return (
     <View style={styles.progressBarTrack}>
@@ -54,8 +50,6 @@ const CategoryTile = ({ category, tasks, onPress }) => {
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter((task) => task.completed).length;
   const progress = totalTasks === 0 ? 0 : completedTasks / totalTasks;
-
-  // Choose the icon for this category, default if not mapped
   const iconName = categoryIcons[category] || "apps-outline";
 
   return (
@@ -108,6 +102,35 @@ const WeddingToDoScreen = () => {
   const [tasks, setTasks] = useState(mergedData);
   // Instead of saving a snapshot object, store the selected category name.
   const [selectedCategoryName, setSelectedCategoryName] = useState(null);
+
+  // Load persisted tasks on mount
+  useEffect(() => {
+    const loadTasks = async () => {
+      try {
+        const storedData = await AsyncStorage.getItem(STORAGE_KEY);
+        if (storedData !== null) {
+          setTasks(JSON.parse(storedData));
+        }
+      } catch (error) {
+        console.log("Error loading tasks", error);
+      }
+    };
+
+    loadTasks();
+  }, []);
+
+  // Persist tasks whenever they change
+  useEffect(() => {
+    const saveTasks = async () => {
+      try {
+        await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+      } catch (error) {
+        console.log("Error saving tasks", error);
+      }
+    };
+
+    saveTasks();
+  }, [tasks]);
 
   const toggleTaskCompletion = (taskId) => {
     setTasks((prevCategories) =>
@@ -178,13 +201,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     paddingBottom: 20,
   },
-  // Wrapper to add margin around each tile
   tileWrapper: {
     width: "45%",
     aspectRatio: 1,
     marginBottom: 15,
   },
-  // Category tile with the green-dominant gradient
   categoryTile: {
     flex: 1,
     borderRadius: 16,
@@ -200,7 +221,6 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     textAlign: "center",
   },
-  // Custom progress bar track (white separator)
   progressBarTrack: {
     width: "80%",
     height: 8,
@@ -209,7 +229,6 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     marginVertical: 5,
   },
-  // Custom progress bar fill (more opaque white)
   progressBarFill: {
     height: "100%",
     backgroundColor: "rgba(255,255,255,0.9)",
