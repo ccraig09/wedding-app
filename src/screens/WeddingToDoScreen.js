@@ -150,7 +150,6 @@ const WeddingToDoScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Wedding To-Do List</Text>
       {selectedCategoryName && currentCategory ? (
         <>
           <TouchableOpacity
@@ -188,13 +187,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingTop: 40,
   },
-  title: {
-    fontSize: SIZES.xLarge,
-    fontWeight: "bold",
-    color: COLORS.primary,
-    textAlign: "center",
-    marginBottom: 10,
-  },
+
   categoryContainer: {
     flexDirection: "row",
     flexWrap: "wrap",

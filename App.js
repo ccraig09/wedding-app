@@ -11,7 +11,6 @@ import HomeScreen from "./src/screens/HomeScreen";
 import MemoriesScreen from "./src/screens/MemoriesScreen";
 import MemoryDetailScreen from "./src/screens/MemoryDetailScreen";
 import AddMemoryScreen from "./src/screens/AddMemoryScreen";
-import RemindersScreen from "./src/screens/RemindersScreen";
 import NotesScreen from "./src/screens/NotesScreen";
 import NoteDetailScreen from "./src/screens/NoteDetailScreen";
 import AddNoteScreen from "./src/screens/AddNoteScreen";
@@ -65,17 +64,12 @@ function TabNavigator() {
       <Tab.Screen
         name="Home"
         component={HomeScreen}
-        options={{ title: "Our Wedding" }}
+        options={{ title: "#Craiginlove" }}
       />
       <Tab.Screen
         name="Memories"
         component={MemoriesNavigator}
         options={{ headerShown: false }}
-      />
-      <Tab.Screen
-        name="Reminders"
-        component={RemindersScreen}
-        options={{ title: "Reminders" }}
       />
       <Tab.Screen
         name="Notes"
@@ -91,7 +85,7 @@ function TabNavigator() {
         name="ToDos"
         component={WeddingToDoNavigator}
         options={{
-          title: "To-Do List",
+          headerShown: false,
           tabBarIcon: ({ focused, color, size }) => (
             <Ionicons
               name={focused ? "list" : "list-outline"}
