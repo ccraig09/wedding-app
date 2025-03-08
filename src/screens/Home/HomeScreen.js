@@ -3,9 +3,9 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Image } from "expo-image";
 
-import { COLORS, SIZES, SHADOWS } from "../utils/theme";
-import CountdownTimer from "../components/CountdownTimer";
-import { WEDDING_DATE } from "../utils/mockData";
+import { COLORS, SIZES, SHADOWS } from "../../utils/theme";
+import CountdownTimer from "../../components/CountdownTimer";
+import { WEDDING_DATE } from "../../utils/mockData";
 import moment from "moment";
 
 const HomeScreen = () => {
@@ -16,7 +16,7 @@ const HomeScreen = () => {
       <View style={styles.header}>
         {/* <Image source={coupleImage}  /> */}
         <Image
-          source={require("../../assets/us_brown.png")}
+          source={require("../../../assets/us_brown.png")}
           style={styles.headerImage}
         />
 

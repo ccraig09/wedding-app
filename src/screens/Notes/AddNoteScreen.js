@@ -1,27 +1,34 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, ScrollView, Alert } from 'react-native';
-import { COLORS, SIZES } from '../utils/theme';
-import Button from '../components/Button';
-import moment from 'moment';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  ScrollView,
+  Alert,
+} from "react-native";
+import { COLORS, SIZES } from "../../utils/theme";
+import Button from "../../components/Button";
+import moment from "moment";
 
 const AddNoteScreen = ({ navigation }) => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
   const handleSave = () => {
     if (!title.trim()) {
-      Alert.alert('Error', 'Please enter a title');
+      Alert.alert("Error", "Please enter a title");
       return;
     }
 
     if (!content.trim()) {
-      Alert.alert('Error', 'Please enter note content');
+      Alert.alert("Error", "Please enter note content");
       return;
     }
 
     // In a real app, you would save this to your database
     // For now, we'll just navigate back
-    Alert.alert('Success', 'Note saved successfully!');
+    Alert.alert("Success", "Note saved successfully!");
     navigation.goBack();
   };
 
@@ -54,14 +61,14 @@ const AddNoteScreen = ({ navigation }) => {
         </View>
 
         <View style={styles.buttonContainer}>
-          <Button 
-            title="Save Note" 
-            onPress={handleSave} 
+          <Button
+            title="Save Note"
+            onPress={handleSave}
             style={styles.button}
           />
-          <Button 
-            title="Cancel" 
-            onPress={() => navigation.goBack()} 
+          <Button
+            title="Cancel"
+            onPress={() => navigation.goBack()}
             type="secondary"
             style={styles.button}
           />
@@ -84,7 +91,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: SIZES.medium,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: COLORS.text,
     marginBottom: 8,
   },
@@ -101,8 +108,8 @@ const styles = StyleSheet.create({
     minHeight: 200,
   },
   buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginTop: 20,
   },
   button: {

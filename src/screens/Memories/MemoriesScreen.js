@@ -1,17 +1,17 @@
-import React from 'react';
-import { View, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { COLORS } from '../utils/theme';
-import MemoryCard from '../components/MemoryCard';
-import { MEMORIES } from '../utils/mockData';
+import React from "react";
+import { View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { COLORS } from "../../utils/theme";
+import MemoryCard from "../../components/MemoryCard";
+import { MEMORIES } from "../../utils/mockData";
 
 const MemoriesScreen = ({ navigation }) => {
   const handleMemoryPress = (memory) => {
-    navigation.navigate('MemoryDetail', { memory });
+    navigation.navigate("MemoryDetail", { memory });
   };
 
   const handleAddMemory = () => {
-    navigation.navigate('AddMemory');
+    navigation.navigate("AddMemory");
   };
 
   return (
@@ -41,17 +41,17 @@ const styles = StyleSheet.create({
     paddingBottom: 80, // Extra padding for FAB
   },
   addButton: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 20,
     right: 20,
     width: 60,
     height: 60,
     borderRadius: 30,
     backgroundColor: COLORS.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     elevation: 5,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 3,

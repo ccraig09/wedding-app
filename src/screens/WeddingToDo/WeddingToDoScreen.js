@@ -8,11 +8,11 @@ import {
   ScrollView,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { COLORS, SIZES, SHADOWS } from "../utils/theme";
+import { COLORS, SIZES, SHADOWS } from "../../utils/theme";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import { weddingToDoData } from "../data/weddingToDoData";
-import { mergeWeddingToDoData } from "../utils/taskUtils";
+import { weddingToDoData } from "../../data/weddingToDoData";
+import { mergeWeddingToDoData } from "../../utils/taskUtils";
 
 // If you have multiple data sources, you can merge them.
 // For now, we merge a single source to get our initial data.

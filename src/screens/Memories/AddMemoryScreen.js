@@ -1,23 +1,34 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, Alert } from 'react-native';
-import { Image } from 'expo-image';
-import * as ImagePicker from 'expo-image-picker';
-import { Ionicons } from '@expo/vector-icons';
-import { COLORS, SIZES, SHADOWS } from '../utils/theme';
-import Button from '../components/Button';
-import moment from 'moment';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  ScrollView,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
+import { Image } from "expo-image";
+import * as ImagePicker from "expo-image-picker";
+import { Ionicons } from "@expo/vector-icons";
+import { COLORS, SIZES, SHADOWS } from "../../utils/theme";
+import Button from "../../components/Button";
+import moment from "moment";
 
 const AddMemoryScreen = ({ navigation }) => {
-  const [title, setTitle] = useState('');
-  const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState("");
+  const [date, setDate] = useState(moment().format("YYYY-MM-DD"));
+  const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
 
   const pickImage = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    
-    if (status !== 'granted') {
-      Alert.alert('Permission Denied', 'We need camera roll permission to upload images.');
+
+    if (status !== "granted") {
+      Alert.alert(
+        "Permission Denied",
+        "We need camera roll permission to upload images."
+      );
       return;
     }
 
@@ -35,18 +46,18 @@ const AddMemoryScreen = ({ navigation }) => {
 
   const handleSave = () => {
     if (!title.trim()) {
-      Alert.alert('Error', 'Please enter a title');
+      Alert.alert("Error", "Please enter a title");
       return;
     }
 
     if (!image) {
-      Alert.alert('Error', 'Please select an image');
+      Alert.alert("Error", "Please select an image");
       return;
     }
 
     // In a real app, you would save this to your database
     // For now, we'll just navigate back
-    Alert.alert('Success', 'Memory saved successfully!');
+    Alert.alert("Success", "Memory saved successfully!");
     navigation.goBack();
   };
 
@@ -55,7 +66,11 @@ const AddMemoryScreen = ({ navigation }) => {
       <View style={styles.content}>
         <TouchableOpacity style={styles.imageContainer} onPress={pickImage}>
           {image ? (
-            <Image source={{ uri: image }} style={styles.image} contentFit="cover" />
+            <Image
+              source={{ uri: image }}
+              style={styles.image}
+              contentFit="cover"
+            />
           ) : (
             <View style={styles.placeholderContainer}>
               <Ionicons name="image-outline" size={50} color={COLORS.gray} />
@@ -101,14 +116,14 @@ const AddMemoryScreen = ({ navigation }) => {
         </View>
 
         <View style={styles.buttonContainer}>
-          <Button 
-            title="Save Memory" 
-            onPress={handleSave} 
+          <Button
+            title="Save Memory"
+            onPress={handleSave}
             style={styles.button}
           />
-          <Button 
-            title="Cancel" 
-            onPress={() => navigation.goBack()} 
+          <Button
+            title="Cancel"
+            onPress={() => navigation.goBack()}
             type="secondary"
             style={styles.button}
           />
@@ -127,23 +142,23 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   imageContainer: {
-    width: '100%',
+    width: "100%",
     height: 200,
     backgroundColor: COLORS.lightGray,
     borderRadius: 10,
-    overflow: 'hidden',
+    overflow: "hidden",
     marginBottom: 20,
     ...SHADOWS.small,
   },
   image: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
   },
   placeholderContainer: {
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
   },
   placeholderText: {
     marginTop: 10,
@@ -155,7 +170,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: SIZES.medium,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: COLORS.text,
     marginBottom: 8,
   },
@@ -172,8 +187,8 @@ const styles = StyleSheet.create({
     minHeight: 100,
   },
   buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginTop: 20,
   },
   button: {

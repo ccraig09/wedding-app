@@ -1,7 +1,7 @@
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { COLORS, SIZES, SHADOWS } from '../utils/theme';
-import moment from 'moment';
+import React from "react";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { COLORS, SIZES, SHADOWS } from "../../utils/theme";
+import moment from "moment";
 
 const NoteDetailScreen = ({ route }) => {
   const { note } = route.params;
@@ -10,7 +10,9 @@ const NoteDetailScreen = ({ route }) => {
     <ScrollView style={styles.container}>
       <View style={styles.content}>
         <Text style={styles.title}>{note.title}</Text>
-        <Text style={styles.date}>{moment(note.date).format('MMMM D, YYYY')}</Text>
+        <Text style={styles.date}>
+          {moment(note.date).format("MMMM D, YYYY")}
+        </Text>
         <Text style={styles.noteContent}>{note.content}</Text>
       </View>
     </ScrollView>
@@ -31,7 +33,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: SIZES.xLarge,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: COLORS.text,
     marginBottom: 10,
   },

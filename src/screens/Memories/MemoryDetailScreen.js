@@ -1,8 +1,8 @@
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { Image } from 'expo-image';
-import { COLORS, SIZES, SHADOWS } from '../utils/theme';
-import moment from 'moment';
+import React from "react";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { Image } from "expo-image";
+import { COLORS, SIZES, SHADOWS } from "../../utils/theme";
+import moment from "moment";
 
 const MemoryDetailScreen = ({ route }) => {
   const { memory } = route.params;
@@ -17,7 +17,9 @@ const MemoryDetailScreen = ({ route }) => {
       />
       <View style={styles.content}>
         <Text style={styles.title}>{memory.title}</Text>
-        <Text style={styles.date}>{moment(memory.date).format('MMMM D, YYYY')}</Text>
+        <Text style={styles.date}>
+          {moment(memory.date).format("MMMM D, YYYY")}
+        </Text>
         <Text style={styles.description}>{memory.description}</Text>
       </View>
     </ScrollView>
@@ -30,7 +32,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
   },
   image: {
-    width: '100%',
+    width: "100%",
     height: 300,
   },
   content: {
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: SIZES.xLarge,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: COLORS.text,
     marginBottom: 10,
   },
