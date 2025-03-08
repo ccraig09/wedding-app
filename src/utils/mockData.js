@@ -1,6 +1,6 @@
 import moment from "moment";
 
-// Wedding date (example - you should update this with your actual date)
+// Wedding date (update this if needed)
 export const WEDDING_DATE = "2025-07-12T16:00:00";
 
 // Calculate days until or since wedding
@@ -32,10 +32,9 @@ export const MEMORIES = [
     id: "2",
     title: "Venue Visit",
     date: "2023-08-20",
-    description:
-      "Our first visit to the wedding venue. We knew it was perfect!",
+    description: "Our first visit to The Canopy Tulsa. We knew it was perfect!",
     image:
-      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://www.canopytulsa.com/wp-content/uploads/2021/11/Canopy-Tulsa.jpg",
   },
   {
     id: "3",
@@ -103,7 +102,7 @@ export const NOTES = [
 export const LIVESTREAM = {
   isLive: false,
   scheduledTime: WEDDING_DATE,
-  url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // Example URL (you'll replace with your actual stream URL)
+  url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // Replace with actual stream URL
   title: "Our Wedding Ceremony",
   description: 'Join us live as we say "I do"!',
 };
