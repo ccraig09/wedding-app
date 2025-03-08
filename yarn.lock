@@ -2014,6 +2014,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-community/progress-bar-android@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "@react-native-community/progress-bar-android@npm:1.0.5"
+  peerDependencies:
+    react: ">=16.8.6"
+    react-native: ">=0.60.0"
+  checksum: 73e3016bedc53bbc6e8e2f2bc5003d8080c15f009a4fc651c258f423275cb9eab4e0706b3e3f31f489cddc64bda118cdcbc271a7e9081491bdba6488bf468683
+  languageName: node
+  linkType: hard
+
 "@react-native/assets-registry@npm:0.76.7":
   version: 0.76.7
   resolution: "@react-native/assets-registry@npm:0.76.7"
@@ -2279,6 +2289,22 @@ __metadata:
     "@react-native-masked-view/masked-view":
       optional: true
   checksum: 4979be0fb72ae667f34c7f6a665ac366f29d8bebf50a4e0919b9f0aa74c1ac13a913ca1fd474f5fa829109c041bea2befaf682adf5a91ca09474dbd7b0b9edc1
+  languageName: node
+  linkType: hard
+
+"@react-navigation/material-top-tabs@npm:^7.1.1":
+  version: 7.1.1
+  resolution: "@react-navigation/material-top-tabs@npm:7.1.1"
+  dependencies:
+    "@react-navigation/elements": ^2.2.6
+    color: ^4.2.3
+    react-native-tab-view: ^4.0.5
+  peerDependencies:
+    "@react-navigation/native": ^7.0.15
+    react: ">= 18.2.0"
+    react-native: "*"
+    react-native-pager-view: ">= 6.0.0"
+  checksum: 723c07e5ae2fa9268708906bcfc601bf042191732d2a72649ec9ce9f7eaff57c2a9b69eaa7b2cabfe51e04343383090984993a6b6e46fc9f237f49df8f97acaa
   languageName: node
   linkType: hard
 
@@ -4723,6 +4749,17 @@ __metadata:
     expo: "*"
     react: "*"
   checksum: 1f8c4c4fbc6030b4ea55fd51b6bb74ba926c71ab3c5350445b065d1433188553b67c64114230240055788df918c96d2d925d9987dcd9fc4045e45362adcbb110
+  languageName: node
+  linkType: hard
+
+"expo-linear-gradient@npm:~14.0.2":
+  version: 14.0.2
+  resolution: "expo-linear-gradient@npm:14.0.2"
+  peerDependencies:
+    expo: "*"
+    react: "*"
+    react-native: "*"
+  checksum: 3f318f50fae44b1f2f90becf421a1c7c0c2822e0a381031fa6d893899173b7ecc6f0c4eddde699e6825fd091d5576cf5960ba81046aeaf0300f44de1147bb543
   languageName: node
   linkType: hard
 
@@ -8547,6 +8584,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-pager-view@npm:^6.7.0":
+  version: 6.7.0
+  resolution: "react-native-pager-view@npm:6.7.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: dab79d98cd9186df8cb6ce62f00d1255490d8ba70bda68709d3adcf7fde5d72f66efcaa5c787c8d1291605e251912862e903f19d6dac2c02479a341c17625597
+  languageName: node
+  linkType: hard
+
 "react-native-reanimated@npm:~3.16.1":
   version: 3.16.7
   resolution: "react-native-reanimated@npm:3.16.7"
@@ -8590,6 +8637,19 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 6e90539e8eb79ba4b3fd23f6c27b943e3595c9c275b3002e6b376eb0a1c17521bde9b05d0b2c4c7ab67042f20bdbec87c3d1e3d182a531b7e3115a2dace0e912
+  languageName: node
+  linkType: hard
+
+"react-native-tab-view@npm:^4.0.5":
+  version: 4.0.5
+  resolution: "react-native-tab-view@npm:4.0.5"
+  dependencies:
+    use-latest-callback: ^0.2.1
+  peerDependencies:
+    react: ">= 18.2.0"
+    react-native: "*"
+    react-native-pager-view: ">= 6.0.0"
+  checksum: 8410242eaedc03ebcb4df97af66473e6f80dd537aadea87a388d50852fb2e9f7e1fb64a95274cdf9dca46fc61ddc7d09651084bd63201fc500bca991086df2ae
   languageName: node
   linkType: hard
 
@@ -10211,7 +10271,9 @@ __metadata:
   dependencies:
     "@babel/core": ^7.25.2
     "@expo/vector-icons": ^14.0.2
+    "@react-native-community/progress-bar-android": ^1.0.5
     "@react-navigation/bottom-tabs": ^7.2.0
+    "@react-navigation/material-top-tabs": ^7.1.1
     "@react-navigation/native": ^7.0.14
     "@react-navigation/native-stack": ^7.2.1
     "@types/jest": ^29.5.12
@@ -10225,6 +10287,7 @@ __metadata:
     expo-haptics: ~14.0.1
     expo-image: ^2.0.6
     expo-image-picker: ^16.0.6
+    expo-linear-gradient: ~14.0.2
     expo-linking: ~7.0.5
     expo-notifications: ^0.29.13
     expo-router: ~4.0.17
@@ -10241,9 +10304,11 @@ __metadata:
     react-dom: 18.3.1
     react-native: 0.76.7
     react-native-gesture-handler: ~2.20.2
+    react-native-pager-view: ^6.7.0
     react-native-reanimated: ~3.16.1
     react-native-safe-area-context: 4.12.0
     react-native-screens: ~4.4.0
+    react-native-tab-view: ^4.0.5
     react-native-web: ~0.19.13
     react-native-webview: 13.12.5
     react-test-renderer: 18.3.1

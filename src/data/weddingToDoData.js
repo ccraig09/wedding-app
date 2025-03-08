@@ -1,0 +1,562 @@
+// src/data/weddingToDoData.js
+
+export const weddingToDoData = [
+  {
+    category: "Ceremony",
+    tasks: [
+      {
+        id: "1",
+        task: "Research ceremony sites",
+        dueDate: "Feb 15, 2025",
+        completed: false,
+      },
+      {
+        id: "2",
+        task: "Schedule ceremony site tours",
+        dueDate: "Feb 18, 2025",
+        completed: false,
+      },
+      {
+        id: "3",
+        task: "Book your ceremony site",
+        dueDate: "Feb 24, 2025",
+        completed: false,
+      },
+      {
+        id: "4",
+        task: "Meet with officiants",
+        dueDate: "Apr 7, 2025",
+        completed: false,
+      },
+      {
+        id: "5",
+        task: "Research ceremony musicians",
+        dueDate: "Apr 19, 2025",
+        completed: false,
+      },
+      {
+        id: "6",
+        task: "Meet with ceremony musicians",
+        dueDate: "Apr 19, 2025",
+        completed: false,
+      },
+      {
+        id: "7",
+        task: "Book your officiant",
+        dueDate: "May 13, 2025",
+        completed: false,
+      },
+      {
+        id: "8",
+        task: "Decide on your ceremony decorations",
+        dueDate: "May 28, 2025",
+        completed: false,
+      },
+      {
+        id: "9",
+        task: "Plan your big exit",
+        dueDate: "Jun 3, 2025",
+        completed: false,
+      },
+      {
+        id: "10",
+        task: "Apply for your marriage license",
+        dueDate: "Jun 20, 2025",
+        completed: false,
+      },
+      {
+        id: "11",
+        task: "Plan your ceremony",
+        dueDate: "Jun 30, 2025",
+        completed: false,
+      },
+      {
+        id: "12",
+        task: "Finalize your ceremony outline",
+        dueDate: "Jul 6, 2025",
+        completed: false,
+      },
+      {
+        id: "13",
+        task: "Get married!",
+        dueDate: "Jul 12, 2025",
+        completed: false,
+      },
+    ],
+  },
+  {
+    category: "Travel",
+    tasks: [
+      {
+        id: "14",
+        task: "Book your wedding night hotel",
+        dueDate: "Mar 6, 2025",
+        completed: false,
+      },
+      {
+        id: "15",
+        task: "Book hotel room blocks for guests",
+        dueDate: "Mar 10, 2025",
+        completed: false,
+      },
+      {
+        id: "16",
+        task: "Research honeymoon destinations",
+        dueDate: "Apr 22, 2025",
+        completed: false,
+      },
+      {
+        id: "17",
+        task: "Book your honeymoon",
+        dueDate: "May 2, 2025",
+        completed: false,
+      },
+      {
+        id: "18",
+        task: "Plan transportation for your wedding party and guests",
+        dueDate: "May 10, 2025",
+        completed: false,
+      },
+      {
+        id: "19",
+        task: "Meet with transportation companies",
+        dueDate: "May 25, 2025",
+        completed: false,
+      },
+      {
+        id: "20",
+        task: "Book transportation",
+        dueDate: "Jun 4, 2025",
+        completed: false,
+      },
+      {
+        id: "21",
+        task: "Make a honeymoon packing list",
+        dueDate: "Jun 18, 2025",
+        completed: false,
+      },
+    ],
+  },
+  {
+    category: "Details",
+    tasks: [
+      {
+        id: "22",
+        task: "Book your wedding planner",
+        dueDate: "Apr 23, 2025",
+        completed: false,
+      },
+      {
+        id: "23",
+        task: "Meet with wedding planners",
+        dueDate: "Apr 28, 2025",
+        completed: false,
+      },
+      {
+        id: "24",
+        task: "Research wedding planners",
+        dueDate: "Apr 28, 2025",
+        completed: false,
+      },
+      {
+        id: "25",
+        task: "Buy or make a day-of emergency kit",
+        dueDate: "Jul 3, 2025",
+        completed: false,
+      },
+      {
+        id: "26",
+        task: "Confirm payments with vendors",
+        dueDate: "Jul 5, 2025",
+        completed: false,
+      },
+      {
+        id: "27",
+        task: "Organize tip envelopes for vendors",
+        dueDate: "Jul 11, 2025",
+        completed: false,
+      },
+      {
+        id: "28",
+        task: "Relax before the big day",
+        dueDate: "Jul 10, 2025",
+        completed: false,
+      },
+      {
+        id: "29",
+        task: "Write reviews for your vendors on The Knot",
+        dueDate: "Jul 20, 2025",
+        completed: false,
+      },
+    ],
+  },
+  {
+    category: "Guests",
+    tasks: [
+      {
+        id: "30",
+        task: "Start your guest list",
+        dueDate: "Jan 21, 2025",
+        completed: false,
+      },
+      {
+        id: "31",
+        task: "Choose your wedding party",
+        dueDate: "Feb 1, 2025",
+        completed: false,
+      },
+      {
+        id: "32",
+        task: "Finalize your guest list",
+        dueDate: "Mar 1, 2025",
+        completed: false,
+      },
+      {
+        id: "33",
+        task: "Collect guest addresses and contact info",
+        dueDate: "Mar 10, 2025",
+        completed: false,
+      },
+      {
+        id: "34",
+        task: "Buy wedding favors",
+        dueDate: "Jun 3, 2025",
+        completed: false,
+      },
+      {
+        id: "35",
+        task: "Create a seating chart",
+        dueDate: "Jun 24, 2025",
+        completed: false,
+      },
+      {
+        id: "36",
+        task: "Remind guests to RSVP",
+        dueDate: "Jun 30, 2025",
+        completed: false,
+      },
+      {
+        id: "37",
+        task: "Have a communication game plan",
+        dueDate: "Jul 1, 2025",
+        completed: false,
+      },
+    ],
+  },
+  {
+    category: "Venue",
+    tasks: [
+      {
+        id: "38",
+        task: "Discover your wedding style",
+        dueDate: "Jan 21, 2025",
+        completed: false,
+      },
+      {
+        id: "39",
+        task: "Research and estimate costs for major budget items",
+        dueDate: "Jan 21, 2025",
+        completed: false,
+      },
+      {
+        id: "40",
+        task: "Explore and tour venues",
+        dueDate: "Jan 22, 2025",
+        completed: false,
+      },
+      {
+        id: "41",
+        task: "Book your reception venue",
+        dueDate: "Feb 18, 2025",
+        completed: false,
+      },
+      {
+        id: "42",
+        task: "Decide which vendors you'll need",
+        dueDate: "Feb 28, 2025",
+        completed: false,
+      },
+      {
+        id: "43",
+        task: "Research rehearsal dinner venues",
+        dueDate: "Apr 25, 2025",
+        completed: false,
+      },
+      {
+        id: "44",
+        task: "Schedule rehearsal dinner venue tours",
+        dueDate: "Apr 28, 2025",
+        completed: false,
+      },
+      {
+        id: "45",
+        task: "Book your rehearsal dinner venue",
+        dueDate: "May 4, 2025",
+        completed: false,
+      },
+      {
+        id: "46",
+        task: "Order rentals",
+        dueDate: "May 8, 2025",
+        completed: false,
+      },
+    ],
+  },
+  {
+    category: "Photos & Videos",
+    tasks: [
+      {
+        id: "47",
+        task: "Research photographers",
+        dueDate: "Mar 5, 2025",
+        completed: false,
+      },
+      {
+        id: "48",
+        task: "Meet with photographers",
+        dueDate: "Mar 8, 2025",
+        completed: false,
+      },
+      {
+        id: "49",
+        task: "Book your photographer",
+        dueDate: "Mar 14, 2025",
+        completed: false,
+      },
+      {
+        id: "50",
+        task: "Schedule engagement photos",
+        dueDate: "Mar 18, 2025",
+        completed: false,
+      },
+    ],
+  },
+  {
+    category: "Food & Drink",
+    tasks: [
+      {
+        id: "51",
+        task: "Meet with caterers",
+        dueDate: "Mar 11, 2025",
+        completed: false,
+      },
+      {
+        id: "52",
+        task: "Research caterers",
+        dueDate: "Mar 13, 2025",
+        completed: false,
+      },
+      {
+        id: "53",
+        task: "Book your caterer",
+        dueDate: "Mar 17, 2025",
+        completed: false,
+      },
+      {
+        id: "54",
+        task: "Save cake photos",
+        dueDate: "Apr 2, 2025",
+        completed: false,
+      },
+      {
+        id: "55",
+        task: "Research cake bakers",
+        dueDate: "Apr 7, 2025",
+        completed: false,
+      },
+      {
+        id: "56",
+        task: "Meet with cake bakers",
+        dueDate: "Apr 11, 2025",
+        completed: false,
+      },
+    ],
+  },
+  {
+    category: "Beauty",
+    tasks: [
+      {
+        id: "57",
+        task: "Save hair and makeup photos",
+        dueDate: "May 7, 2025",
+        completed: false,
+      },
+      {
+        id: "58",
+        task: "Book your hair stylists",
+        dueDate: "May 13, 2025",
+        completed: false,
+      },
+      {
+        id: "59",
+        task: "Book your makeup artists",
+        dueDate: "May 17, 2025",
+        completed: false,
+      },
+    ],
+  },
+  {
+    category: "Attire",
+    tasks: [
+      {
+        id: "60",
+        task: "Schedule fittings",
+        dueDate: "Mar 14, 2025",
+        completed: false,
+      },
+      {
+        id: "61",
+        task: "Buy your wedding attire",
+        dueDate: "Mar 31, 2025",
+        completed: false,
+      },
+      {
+        id: "62",
+        task: "Choose wedding party attire",
+        dueDate: "Apr 25, 2025",
+        completed: false,
+      },
+      {
+        id: "63",
+        task: "Save wedding ring inspiration",
+        dueDate: "May 17, 2025",
+        completed: false,
+      },
+      {
+        id: "64",
+        task: "Choose wedding rings",
+        dueDate: "May 20, 2025",
+        completed: false,
+      },
+    ],
+  },
+  {
+    category: "Music",
+    tasks: [
+      {
+        id: "65",
+        task: "Research bands and DJs",
+        dueDate: "Apr 2, 2025",
+        completed: false,
+      },
+      {
+        id: "66",
+        task: "Meet with bands and DJs",
+        dueDate: "Apr 7, 2025",
+        completed: false,
+      },
+      {
+        id: "67",
+        task: "Book your band or DJ",
+        dueDate: "Apr 13, 2025",
+        completed: false,
+      },
+      {
+        id: "68",
+        task: "Meet with cocktail hour musicians",
+        dueDate: "Apr 13, 2025",
+        completed: false,
+      },
+    ],
+  },
+  {
+    category: "Flowers & Decor",
+    tasks: [
+      {
+        id: "69",
+        task: "Research florists",
+        dueDate: "Apr 2, 2025",
+        completed: false,
+      },
+      {
+        id: "70",
+        task: "Meet with florists",
+        dueDate: "Apr 4, 2025",
+        completed: false,
+      },
+      {
+        id: "71",
+        task: "Save floral inspiration",
+        dueDate: "Apr 5, 2025",
+        completed: false,
+      },
+      {
+        id: "72",
+        task: "Book your florist",
+        dueDate: "Apr 10, 2025",
+        completed: false,
+      },
+      {
+        id: "73",
+        task: "Meet with rental and lighting pros",
+        dueDate: "May 1, 2025",
+        completed: false,
+      },
+      {
+        id: "74",
+        task: "List reception extras to buy",
+        dueDate: "May 13, 2025",
+        completed: false,
+      },
+    ],
+  },
+  {
+    category: "Invitations & Paper",
+    tasks: [
+      {
+        id: "75",
+        task: "Announce your engagement",
+        dueDate: "Feb 3, 2025",
+        completed: false,
+      },
+      {
+        id: "76",
+        task: "Order free save the date samples",
+        dueDate: "Mar 1, 2025",
+        completed: false,
+      },
+      {
+        id: "77",
+        task: "Order save the dates",
+        dueDate: "Mar 13, 2025",
+        completed: false,
+      },
+      {
+        id: "78",
+        task: "Browse invitations and paper",
+        dueDate: "Mar 14, 2025",
+        completed: false,
+      },
+      {
+        id: "79",
+        task: "Send save the dates",
+        dueDate: "Mar 29, 2025",
+        completed: false,
+      },
+      {
+        id: "80",
+        task: "Order free invitation samples",
+        dueDate: "Apr 3, 2025",
+        completed: false,
+      },
+      {
+        id: "81",
+        task: "Order rehearsal dinner invitations",
+        dueDate: "May 10, 2025",
+        completed: false,
+      },
+      {
+        id: "82",
+        task: "Order wedding invitations",
+        dueDate: "May 23, 2025",
+        completed: false,
+      },
+      {
+        id: "83",
+        task: "Buy postage stamps",
+        dueDate: "May 31, 2025",
+        completed: false,
+      },
+    ],
+  },
+];

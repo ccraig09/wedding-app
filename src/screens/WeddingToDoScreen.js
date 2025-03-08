@@ -1,3 +1,5 @@
+// WeddingToDoScreen.js
+
 import React, { useState } from "react";
 import {
   View,
@@ -5,137 +7,153 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import { COLORS, SIZES, SHADOWS } from "../utils/theme";
 import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
+import { weddingToDoData } from "../data/weddingToDoData";
+import { mergeWeddingToDoData } from "../utils/taskUtils";
 
-// Mock Data (Your current tasks)
-const currentTasks = [
-  {
-    id: "1",
-    task: "Book your reception venue",
-    dueDate: "Feb 18, 2025",
-    completed: false,
-  },
-  {
-    id: "2",
-    task: "Decide which vendors you'll need",
-    dueDate: "Feb 28, 2025",
-    completed: false,
-  },
-  {
-    id: "3",
-    task: "Research rehearsal dinner venues",
-    dueDate: "Apr 25, 2025",
-    completed: false,
-  },
-  {
-    id: "4",
-    task: "Schedule rehearsal dinner venue tours",
-    dueDate: "Apr 28, 2025",
-    completed: false,
-  },
-  {
-    id: "5",
-    task: "Book your rehearsal dinner venue",
-    dueDate: "May 4, 2025",
-    completed: false,
-  },
-  { id: "6", task: "Order rentals", dueDate: "May 8, 2025", completed: false },
-];
+// If you have multiple data sources, you can merge them.
+// For now, we merge a single source to get our initial data.
+const mergedData = mergeWeddingToDoData([weddingToDoData]);
 
-// Auto-generated recommendations
-const recommendedTasks = [
-  {
-    id: "7",
-    task: "Finalize guest list",
-    dueDate: "May 15, 2025",
-    completed: false,
-  },
-  {
-    id: "8",
-    task: "Send out wedding invitations",
-    dueDate: "Jun 1, 2025",
-    completed: false,
-  },
-  {
-    id: "9",
-    task: "Schedule wedding dress fitting",
-    dueDate: "Jun 10, 2025",
-    completed: false,
-  },
-  {
-    id: "10",
-    task: "Confirm caterer and menu",
-    dueDate: "Jun 20, 2025",
-    completed: false,
-  },
-  {
-    id: "11",
-    task: "Organize seating arrangements",
-    dueDate: "Jul 1, 2025",
-    completed: false,
-  },
-  {
-    id: "12",
-    task: "Book honeymoon accommodations",
-    dueDate: "Jul 5, 2025",
-    completed: false,
-  },
-];
+// Map each category to a custom icon (using Ionicons)
+const categoryIcons = {
+  Ceremony: "heart-outline",
+  Travel: "airplane-outline",
+  Details: "information-circle-outline",
+  Guests: "people-outline",
+  Venue: "home-outline",
+  "Photos & Videos": "camera-outline",
+  "Food & Drink": "fast-food-outline",
+  Beauty: "color-wand-outline",
+  Attire: "shirt-outline",
+  Music: "musical-notes-outline",
+  "Flowers & Decor": "leaf-outline",
+  "Invitations & Paper": "document-text-outline",
+};
+
+// Define a green-dominant gradient using your theme values.
+const greenDominantGradient = [COLORS.success, COLORS.success, COLORS.primary];
+
+/* CustomProgressBar:
+   A simple progress bar that displays a white track (with a slightly transparent white)
+   and a fill (more opaque white) to indicate progress.
+*/
+const CustomProgressBar = ({ progress }) => {
+  return (
+    <View style={styles.progressBarTrack}>
+      <View style={[styles.progressBarFill, { width: `${progress * 100}%` }]} />
+    </View>
+  );
+};
+
+const CategoryTile = ({ category, tasks, onPress }) => {
+  const totalTasks = tasks.length;
+  const completedTasks = tasks.filter((task) => task.completed).length;
+  const progress = totalTasks === 0 ? 0 : completedTasks / totalTasks;
+
+  // Choose the icon for this category, default if not mapped
+  const iconName = categoryIcons[category] || "apps-outline";
+
+  return (
+    <TouchableOpacity onPress={onPress} style={styles.tileWrapper}>
+      <LinearGradient
+        colors={greenDominantGradient}
+        style={styles.categoryTile}
+      >
+        <Ionicons name={iconName} size={32} color={COLORS.white} />
+        <Text style={styles.categoryTitle}>{category}</Text>
+        <CustomProgressBar progress={progress} />
+        <Text style={styles.progressText}>
+          {completedTasks} / {totalTasks} tasks
+        </Text>
+      </LinearGradient>
+    </TouchableOpacity>
+  );
+};
+
+const TaskList = ({ tasks, toggleTaskCompletion }) => (
+  <FlatList
+    data={tasks}
+    renderItem={({ item }) => (
+      <TouchableOpacity
+        style={[styles.taskContainer, item.completed && styles.taskCompleted]}
+        onPress={() => toggleTaskCompletion(item.id)}
+      >
+        <Ionicons
+          name={item.completed ? "checkmark-circle" : "ellipse-outline"}
+          size={24}
+          color={item.completed ? COLORS.primary : COLORS.gray}
+          style={styles.icon}
+        />
+        <View>
+          <Text
+            style={[styles.taskText, item.completed && styles.completedText]}
+          >
+            {item.task}
+          </Text>
+          <Text style={styles.dueDate}>Due: {item.dueDate}</Text>
+        </View>
+      </TouchableOpacity>
+    )}
+    keyExtractor={(item) => item.id}
+  />
+);
 
 const WeddingToDoScreen = () => {
-  const [tasks, setTasks] = useState([...currentTasks, ...recommendedTasks]);
+  // Store the entire merged data for categories
+  const [tasks, setTasks] = useState(mergedData);
+  // Instead of saving a snapshot object, store the selected category name.
+  const [selectedCategoryName, setSelectedCategoryName] = useState(null);
 
   const toggleTaskCompletion = (taskId) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === taskId ? { ...task, completed: !task.completed } : task
-      )
+    setTasks((prevCategories) =>
+      prevCategories.map((cat) => ({
+        ...cat,
+        tasks: cat.tasks.map((t) =>
+          t.id === taskId ? { ...t, completed: !t.completed } : t
+        ),
+      }))
     );
   };
 
-  const renderTask = ({ item }) => (
-    <TouchableOpacity
-      style={[styles.taskContainer, item.completed && styles.taskCompleted]}
-      onPress={() => toggleTaskCompletion(item.id)}
-    >
-      <Ionicons
-        name={item.completed ? "checkmark-circle" : "ellipse-outline"}
-        size={24}
-        color={item.completed ? COLORS.primary : COLORS.gray}
-        style={styles.icon}
-      />
-      <View>
-        <Text style={[styles.taskText, item.completed && styles.completedText]}>
-          {item.task}
-        </Text>
-        <Text style={styles.dueDate}>Due: {item.dueDate}</Text>
-      </View>
-    </TouchableOpacity>
+  // Derive the current category from the latest tasks state.
+  const currentCategory = tasks.find(
+    (cat) => cat.category === selectedCategoryName
   );
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Wedding To-Do List</Text>
-
-      {/* Section for Current Tasks */}
-      <Text style={styles.sectionTitle}>✅ Your Tasks</Text>
-      <FlatList
-        data={currentTasks}
-        renderItem={renderTask}
-        keyExtractor={(item) => item.id}
-        style={styles.list}
-      />
-
-      {/* Section for Recommended Tasks */}
-      <Text style={styles.sectionTitle}>🔥 Recommended Tasks</Text>
-      <FlatList
-        data={recommendedTasks}
-        renderItem={renderTask}
-        keyExtractor={(item) => item.id}
-        style={styles.list}
-      />
+      {selectedCategoryName && currentCategory ? (
+        <>
+          <TouchableOpacity
+            onPress={() => setSelectedCategoryName(null)}
+            style={styles.backButton}
+          >
+            <Ionicons name="arrow-back" size={24} color={COLORS.primary} />
+            <Text style={styles.backText}>Back to Categories</Text>
+          </TouchableOpacity>
+          <TaskList
+            tasks={currentCategory.tasks}
+            toggleTaskCompletion={toggleTaskCompletion}
+          />
+        </>
+      ) : (
+        <ScrollView contentContainerStyle={styles.categoryContainer}>
+          {tasks.map((categoryData) => (
+            <CategoryTile
+              key={categoryData.category}
+              category={categoryData.category}
+              tasks={categoryData.tasks}
+              onPress={() => setSelectedCategoryName(categoryData.category)}
+            />
+          ))}
+        </ScrollView>
+      )}
     </View>
   );
 };
@@ -144,7 +162,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.background,
-    padding: 20,
+    paddingHorizontal: 10,
+    paddingTop: 40,
   },
   title: {
     fontSize: SIZES.xLarge,
@@ -153,15 +172,62 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 10,
   },
-  sectionTitle: {
-    fontSize: SIZES.large,
-    fontWeight: "bold",
-    color: COLORS.text,
-    marginTop: 20,
+  categoryContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+    paddingBottom: 20,
+  },
+  // Wrapper to add margin around each tile
+  tileWrapper: {
+    width: "45%",
+    aspectRatio: 1,
+    marginBottom: 15,
+  },
+  // Category tile with the green-dominant gradient
+  categoryTile: {
+    flex: 1,
+    borderRadius: 16,
+    padding: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    ...SHADOWS.medium,
+  },
+  categoryTitle: {
+    fontSize: SIZES.medium,
+    fontWeight: "600",
+    color: COLORS.white,
+    marginVertical: 5,
+    textAlign: "center",
+  },
+  // Custom progress bar track (white separator)
+  progressBarTrack: {
+    width: "80%",
+    height: 8,
+    backgroundColor: "rgba(255,255,255,0.3)",
+    borderRadius: 4,
+    overflow: "hidden",
+    marginVertical: 5,
+  },
+  // Custom progress bar fill (more opaque white)
+  progressBarFill: {
+    height: "100%",
+    backgroundColor: "rgba(255,255,255,0.9)",
+  },
+  progressText: {
+    fontSize: SIZES.small,
+    color: COLORS.white,
+    marginTop: 4,
+  },
+  backButton: {
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 10,
   },
-  list: {
-    marginBottom: 10,
+  backText: {
+    fontSize: SIZES.medium,
+    color: COLORS.primary,
+    marginLeft: 10,
   },
   taskContainer: {
     flexDirection: "row",
@@ -171,6 +237,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 10,
     ...SHADOWS.medium,
+  },
+  taskCompleted: {
+    opacity: 0.6,
   },
   icon: {
     marginRight: 15,
@@ -186,9 +255,6 @@ const styles = StyleSheet.create({
   dueDate: {
     fontSize: SIZES.small,
     color: COLORS.gray,
-  },
-  taskCompleted: {
-    backgroundColor: COLORS.lightGray,
   },
 });
 

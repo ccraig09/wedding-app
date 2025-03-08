@@ -1,6 +1,5 @@
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
-import { View, Text, StyleSheet, ScrollView, Button } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Image } from "expo-image";
 
@@ -10,7 +9,6 @@ import { WEDDING_DATE } from "../utils/mockData";
 import moment from "moment";
 
 const HomeScreen = () => {
-  const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>
       <StatusBar style="light" />
@@ -33,11 +31,6 @@ const HomeScreen = () => {
 
       <View style={styles.content}>
         <CountdownTimer />
-        <Button
-          title="View Wedding To-Do List"
-          onPress={() => navigation.navigate("WeddingToDos")}
-          color={COLORS.primary}
-        />
 
         <View style={styles.infoCard}>
           <Text style={styles.infoTitle}>Wedding Ceremony</Text>
