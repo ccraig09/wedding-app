@@ -36,7 +36,12 @@ const categoryIcons = {
 };
 
 // Define a green-dominant gradient using your theme values.
-const greenDominantGradient = [COLORS.primary, COLORS.primary, COLORS.primary];
+const greenDominantGradient = [
+  COLORS.primary,
+  COLORS.primary,
+  COLORS.primary,
+  COLORS.secondary,
+];
 
 const CustomProgressBar = ({ progress }) => {
   return (
